@@ -22,7 +22,7 @@ cafile="/home/pi/certs/AmazonRootCA1.pem"
 cert = "/home/pi/certs/7042485e20-certificate.pem.crt"
 pkey = "/home/pi/certs/7042485e20-private.pem.key"
 endpoint = "a3d2a52ezvc95n-ats.iot.us-east-1.amazonaws.com"
-topic = "tcu-pi/pi123"
+topic = "tcu-pi/123"
 
 io.init_logging(0, 'stderr')
 
