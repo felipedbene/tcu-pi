@@ -92,7 +92,7 @@ if __name__ == '__main__':
      "name": "speed",
      "value": 87,
      "vin": "123445656677777",
-     "trip_id": trip_id  
+     "trip_id": "trip_id"
 
     }
     message_json = json.dumps(message)
