@@ -86,14 +86,13 @@ if __name__ == '__main__':
     connect_future.result()
     print("Connected!")
 
-    trip_id = uuid.uuid4()
+    trip_id = str(uuid.uuid4())
 
     message = {
      "name": "speed",
      "value": 87,
      "vin": "123445656677777",
-     "trip_id": "trip_id"
-
+     "trip_id": trip_id
     }
     message_json = json.dumps(message)
     # Publish message to server desired number of times.
