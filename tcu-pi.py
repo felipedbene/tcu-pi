@@ -95,7 +95,7 @@ if __name__ == '__main__':
      "trip_id": trip_id  
 
     }
-    message = json.json_encode(message)
+    message_json = json.dumps(message)
     # Publish message to server desired number of times.
     # This step is skipped if message is blank.
     # This step loops forever if count was set to 0.
@@ -103,7 +103,7 @@ if __name__ == '__main__':
     publish_count = 1
     while (publish_count <= 10) :
         message = "{} [{}]".format(args.message, publish_count)
-        print("Publishing message to topic '{}': {}".format(topic, message))
+        print("Publishing message to topic '{}': {}".format(topic, message_json))
         mqtt_connection.publish(
             topic=topic,
             payload=message,
