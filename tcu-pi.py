@@ -90,7 +90,7 @@ if __name__ == '__main__':
     trip_id = str(uuid.uuid4())
 
     message = {
-        "timestamp" : datetime.datetime.now(),
+        "timestamp" : str(datetime.datetime.now()),
      "name": "speed",
      "value": 87,
      "vin": "123445656677777",
