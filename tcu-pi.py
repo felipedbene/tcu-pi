@@ -109,11 +109,10 @@ if __name__ == '__main__':
     publish_count = 1
     while (publish_count <= 10) :
         message_json = send_trip_status(trip_id)
-        message = "{} [{}]".format(message, publish_count)
-        print("Publishing message to topic '{}': {}".format(topic, message))
+        print("Publishing message to topic '{}': {}".format(topic, message_json))
         mqtt_connection.publish(
             topic=topic,
-            payload=send_trip_status(trip_id),
+            payload=message_json,
             qos=mqtt.QoS.AT_LEAST_ONCE)
         time.sleep(1)
         publish_count += 1
