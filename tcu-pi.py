@@ -102,7 +102,7 @@ if __name__ == '__main__':
 
     publish_count = 1
     while (publish_count <= 10) :
-        message = "{} [{}]".format(args.message, publish_count)
+        message = "{} [{}]".format(message, publish_count)
         print("Publishing message to topic '{}': {}".format(topic, message_json))
         mqtt_connection.publish(
             topic=topic,
