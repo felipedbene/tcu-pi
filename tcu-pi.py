@@ -17,9 +17,9 @@ import json
 # The device should receive those same messages back from the message broker,
 # since it is subscribed to that same topic.
 client_id = "rapsberry-001"
-cafile="~/certs/AmazonRootCA1.pem"
-cert = "~/certs/7042485e20-certificate.pem.crt"
-pkey = "~/certs/7042485e20-private.pem.key"
+cafile="/home/pi/certs/AmazonRootCA1.pem"
+cert = "/home/pi/certs/7042485e20-certificate.pem.crt"
+pkey = "/home/pi/certs/7042485e20-private.pem.key"
 endpoint = "a3d2a52ezvc95n-ats.iot.us-east-1.amazonaws.com"
 topic = "tcu-pi/pi123"
 
