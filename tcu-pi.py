@@ -57,6 +57,18 @@ def on_resubscribe_complete(resubscribe_future):
 
 
 
+def send_trip_status(trip_id):
+    message = {
+        "timestamp" : str(datetime.datetime.now()),
+     "name": "speed",
+     "value": 87,
+     "vin": "123445656677777",
+     "trip_id": trip_id
+    }
+
+    message_json = json.dumps(message)
+    return message_json
+
 if __name__ == '__main__':
     # Spin up resources
     event_loop_group = io.EventLoopGroup(1)
@@ -89,15 +101,7 @@ if __name__ == '__main__':
 
     trip_id = str(uuid.uuid4())
 
-    message = {
-        "timestamp" : str(datetime.datetime.now()),
-     "name": "speed",
-     "value": 87,
-     "vin": "123445656677777",
-     "trip_id": trip_id
-    }
-
-    message_json = json.dumps(message)
+    
     # Publish message to server desired number of times.
     # This step is skipped if message is blank.
     # This step loops forever if count was set to 0.
@@ -108,7 +112,7 @@ if __name__ == '__main__':
         print("Publishing message to topic '{}': {}".format(topic, message_json))
         mqtt_connection.publish(
             topic=topic,
-            payload=message,
+            payload=send_trip_status(trip_id),
             qos=mqtt.QoS.AT_LEAST_ONCE)
         time.sleep(1)
         publish_count += 1
