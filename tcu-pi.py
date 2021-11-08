@@ -10,6 +10,7 @@ import threading
 import time
 from uuid import uuid4
 import json
+import datetime
 
 # This sample uses the Message Broker for AWS IoT to send and receive messages
 # through an MQTT connection. On startup, the device connects to the server,
@@ -89,11 +90,13 @@ if __name__ == '__main__':
     trip_id = str(uuid.uuid4())
 
     message = {
+        "timestamp" : datetime.datetime.now(),
      "name": "speed",
      "value": 87,
      "vin": "123445656677777",
      "trip_id": trip_id
     }
+
     message_json = json.dumps(message)
     # Publish message to server desired number of times.
     # This step is skipped if message is blank.
